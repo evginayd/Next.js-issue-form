@@ -1,10 +1,13 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 const IssuesPage = () => {
   return (
     <main>
       <div>
-        <Button>New Issue</Button>
+        <Button>
+          <Link href="/issues/new">New Issue</Link>
+        </Button>
       </div>
     </main>
   );

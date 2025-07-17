@@ -1,10 +1,14 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Sun, Moon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { FaBug } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import classnames from "classnames";
 const NavBar = () => {
+  const { theme, setTheme } = useTheme();
   const currentPath = usePathname();
 
   const links = [
@@ -31,6 +35,17 @@ const NavBar = () => {
             {link.label}
           </Link>
         ))}
+        <Button
+          variant="outline"
+          size="icon"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        >
+          {theme === "dark" ? (
+            <Sun className="h-5 w-5" />
+          ) : (
+            <Moon className="h-5 w-5" />
+          )}
+        </Button>
       </ul>
     </nav>
   );

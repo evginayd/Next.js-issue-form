@@ -3,14 +3,27 @@ import React from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { FaBug } from "react-icons/fa6";
 import { usePathname } from "next/navigation";
 import classnames from "classnames";
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
   const currentPath = usePathname();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null; // SSR sırasında hiçbir şey render etme
+  }
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   const links = [
     { label: "Dashboard", href: "/" },
     { label: "Issues", href: "/issues" },
@@ -35,11 +48,7 @@ const NavBar = () => {
             {link.label}
           </Link>
         ))}
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        >
+        <Button onClick={toggleTheme}>
           {theme === "dark" ? (
             <Sun className="h-5 w-5" />
           ) : (

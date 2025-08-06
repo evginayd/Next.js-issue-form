@@ -37,8 +37,8 @@ export function LoginForm({
     if (res.ok) {
       const user = await res.json(); // sunucu "user" bilgisi döndürmeli
 
-      router.push("/");
-      router.refresh();
+      router.refresh(); // 🔁 Navbar gibi server component'leri yeniler
+      router.push("/"); // anasayfaya yönlendir
     } else {
       // hata mesajı göster vs.
       console.error("Login failed");

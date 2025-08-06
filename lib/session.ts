@@ -1,4 +1,4 @@
-import { SignJWT, jwtVerify } from 'jose';
+import { SignJWT, jwtVerify } from "jose";
 
 // Session içine ne koyduğunu açıkça tanımla
 export interface SessionPayload {
@@ -6,16 +6,16 @@ export interface SessionPayload {
   expiresAt: Date;
 }
 
-const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'dev-secret');
+const secret = new TextEncoder().encode(process.env.JWT_SECRET || "dev-secret");
 
 export async function encrypt(payload: SessionPayload): Promise<string> {
   return await new SignJWT({
     userId: payload.userId,
     expiresAt: payload.expiresAt.toISOString(),
   })
-    .setProtectedHeader({ alg: 'HS256' })
+    .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
-    .setExpirationTime('1h')
+    .setExpirationTime("1h")
     .sign(secret);
 }
 

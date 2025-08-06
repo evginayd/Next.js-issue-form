@@ -40,3 +40,10 @@ npx prisma migrate dev
 
 # Start development server
 npm run dev
+```
+## 📸 Screenshots
+<img width="1916" height="925" alt="issue-tracker-simple-4" src="https://github.com/user-attachments/assets/502c11e8-7026-4228-a120-cdd9e3a1c48d" />
+<img width="1912" height="926" alt="issue-tracker-simple-3" src="https://github.com/user-attachments/assets/6820b06b-5f9f-47f5-9057-adf0028e684e" />
+<img width="1911" height="922" alt="issue-tracker-simple-1" src="https://github.com/user-attachments/assets/1720ad3d-a785-4fab-828a-f3d28ec2502b" />
+<img width="1912" height="926" alt="issue-tracker-simple-2" src="https://github.com/user-attachments/assets/4e57b742-1d4b-4dd6-917b-cab61f615d13" />
+
